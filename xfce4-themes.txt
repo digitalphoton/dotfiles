@@ -1,4 +1,0 @@
-Theme: Qogir, Arc
-Icons: Papirus
-Font: DejaVu Sans Book
-
