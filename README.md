@@ -7,9 +7,7 @@ Desktop Environment: Xfce
 
 Window Manager: i3-gaps
 
-GTK2 Theme: Qogir
-
-GTK3 Theme: Arc 
+GTK2/3 Theme: Qogir
 
 Icon Theme: Papirus
 
