@@ -171,7 +171,7 @@ bindsym $mod+Shift+period exec --no-startup-id amixer set Master 5%+      # Incr
 bindsym $mod+Shift+v exec --no-startup-id /usr/bin/micmute                # Mute microphone
 
 # Media player controls
-bindsym $mod+Pause exec --no-startup-id playerctl play-pause        # Play/Pause
+bindsym $mod+P exec --no-startup-id playerctl play-pause                  # Play/Pause
 bindsym $mod+Shift+n exec --no-startup-id playerctl next                  # Next track
 bindsym $mod+Shift+p exec --no-startup-id playerctl previous              # Previous track
 
