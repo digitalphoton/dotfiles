@@ -14,10 +14,9 @@ if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
   add-zsh-hook -Uz precmd xterm_title_precmd
 fi
 
-# Prompt variables
+# Prompt variable
 PROMPT='%B%F{red}%n%f%b@%B%F{blue}%m%f%b:%B%F{green}%0~%f%b 
-%(!.%F{yellow}#%f.$) '
-RPROMPT='[%F{yellow}%?%f]'
+%(?.%?.%F{yellow}%?%f) %(!.%F{yellow}#%f.$) '
 
 compinit
 
