@@ -1,4 +1,4 @@
-# The following lines were added by compinstall
+# zsh configuration
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle :compinstall filename '/home/digitalphoton/.zshrc'
@@ -6,28 +6,33 @@ zstyle :compinstall filename '/home/digitalphoton/.zshrc'
 autoload -Uz compinit
 autoload -Uz add-zsh-hook
 
+# Setting window title on every new prompt
 function xterm_title_precmd () {
   print -Pn '\e]2;%1~ %(!.#.$) - zsh \a'
 }
-
 if [[ "$TERM" == (screen*|xterm*|rxvt*) ]]; then
   add-zsh-hook -Uz precmd xterm_title_precmd
 fi
 
+# Prompt variables
 PROMPT='%B%F{red}%n%f%b@%B%F{blue}%m%f%b:%B%F{green}%0~%f%b 
 %(!.%F{yellow}#%f.$) '
 RPROMPT='[%F{yellow}%?%f]'
 
+# Not sure what this thing is yet
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+
+# History size
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+# Some settings
 setopt appendhistory notify
 unsetopt autocd extendedglob
+
+# Vi mode
 bindkey -v
-# End of lines configured by zsh-newuser-install
 
 # Set default editor to vim
 export EDITOR=vim
