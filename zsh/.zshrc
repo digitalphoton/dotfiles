@@ -19,15 +19,12 @@ PROMPT='%B%F{red}%n%f%b@%B%F{blue}%m%f%b:%B%F{green}%0~%f%b
 %(!.%F{yellow}#%f.$) '
 RPROMPT='[%F{yellow}%?%f]'
 
-# Not sure what this thing is yet
 compinit
 
-# History size
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# Some settings
 setopt appendhistory notify
 unsetopt autocd extendedglob
 
