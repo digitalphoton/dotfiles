@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo pacman -S acpid alsa-utils atool broadcom-wl compton dhclient dosfstools efibootmgr evince exa feh ffmpegthumbnailer firefox flashplugin font-mathematica git grub gvfs gvim highlight htop intel-ucode jre-openjdk keychain lib32-jack lib32-libpulse lib32-mesa libreoffice-fresh libreoffice-fresh-pt-br light-locker lightdm-gtk-greeter-settings lxappearance mediainfo mesa mpv neofetch nmap noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ntfs-3g odt2txt openssh os-prober papirus-icon-theme pavucontrol playerctl poppler pulseaudio python-pip qbittorrent ranger rofi rsync speech-dispatcher steam stellarium termite ttf-dejavu ttf-liberation ttf-ubraille ufw vlc w3m wicd-gtk wol xf86-video-intel xfce4 xfce4-goodies xorg zenity zsh zsh-completions 
+yay -S aic94xx-firmware discord i3-gaps-next-git qogir-gtk-theme-git spotify wd719x-firmware xfce4-i3-workspaces-plugin-git
