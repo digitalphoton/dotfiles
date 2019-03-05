@@ -40,6 +40,7 @@ And then uncomment the desired keybinds on '~/.config/i3/config'
 ### Keychain
 
 To use the handy `keychain` for managing your ssh and gpg keys:
+
   `# pacman -S keychain`
 
 Afterwards, uncomment the keychain line in '.config/zsh/zshrc'
