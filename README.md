@@ -15,13 +15,13 @@ Shell: zsh
 
 ## Instalation
 
-Run the following commands (assuming you use Arch Linux, have the `yay` AUR helper installed, and already have Xfce and zsh working):
+Run the following commands (assuming you use Arch Linux, have the `yay` AUR helper installed, and already have Xfce and zsh up and running):
 
   `# sudo pacman -S compton exa feh neovim papirus-icon-theme termite ttf-dejavu`
 
   `$ yay -S i3-gaps-next-git qogir-gtk-theme-git xfce4-i3-workspaces-plugin-git`
 
-Then just copy all of the folders in this repository to '~/.config'. Please note that for the zsh to be applied you need to run:
+Then just copy all of the folders in this repository to '~/.config'. Please note that for the zsh config to be applied you need to run:
 
   `$ ln -s ~/.config/zsh/.zshrc .zshrc`
 
