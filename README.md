@@ -23,7 +23,7 @@ Run the following commands (assuming you use Arch Linux, have the `yay` AUR help
 
 Then just copy all of the folders in this repository to '~/.config'. Please note that for the zsh config to be applied you need to run:
 
-  `$ ln -s ~/.config/zsh/.zshrc .zshrc`
+  `$ ln -s ~/.config/zsh/.zshrc ~/.zshrc`
 
 Also note that the wallpaper is set as '~/walpaper.image', for easy wallpaper switching; so to set the wallpaper you also need a link:
 
