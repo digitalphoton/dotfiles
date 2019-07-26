@@ -30,15 +30,14 @@ unsetopt autocd extendedglob
 # Vi mode
 bindkey -v
 
-# Set default editor to vim
-export EDITOR=vim
+# Set default editor to neovim
+export EDITOR=/usr/bin/nvim
 
 # Aliases
-alias ls='exa'
-alias la='exa -a'
-alias ll='exa -l --header --git --time-style=long-iso'
-alias lla='exa -la --header --git --time-style=long-iso'
+alias ls='lsd'
+alias la='ls -A'
+alias ll='ls -l'
+alias cat='bat'
 
-## Starts keychaing (ssh and gpg agent, requires `keychain` package)
-#eval `keychain --agents ssh,gpg --eval --quiet --noask id_rsa 271E480E94C91782CBFBEA0A484AB4CF1358F42A`
+eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa 271E480E94C91782CBFBEA0A484AB4CF1358F42A`
 
