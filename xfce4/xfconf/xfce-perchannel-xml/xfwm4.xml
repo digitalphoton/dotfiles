@@ -11,7 +11,9 @@
       <value type="string" value="10"/>
       <value type="string" value="10"/>
       <value type="string" value="10"/>
+      <value type="string" value="10"/>
+      <value type="string" value="10"/>
     </property>
-    <property name="workspace_count" type="int" value="6"/>
+    <property name="workspace_count" type="int" value="4"/>
   </property>
 </channel>

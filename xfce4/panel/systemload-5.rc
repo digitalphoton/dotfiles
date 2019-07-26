@@ -16,8 +16,8 @@ Color=rgb(0,192,0)
 Text=mem
 
 [SL_Swap]
-Enabled=false
-Use_Label=true
+Enabled=true
+Use_Label=false
 Color=rgb(240,240,0)
 Text=swap
 
