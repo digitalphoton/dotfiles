@@ -34,9 +34,9 @@ bindkey -v
 export EDITOR=/usr/bin/nvim
 
 # Aliases
-alias ls='lsd'
-alias la='ls -A'
-alias ll='ls -l'
+alias ls='exa'
+alias la='ls -a'
+alias ll='ls -lh --time-style long-iso --git'
 alias cat='bat'
 
 eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa 271E480E94C91782CBFBEA0A484AB4CF1358F42A`
