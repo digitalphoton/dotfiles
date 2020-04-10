@@ -7,8 +7,8 @@
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Desktop Background
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper/wallpaper.img
-exec_always --no-startup-id betterlockscreen -u ~/Pictures/wallpaper/wallpaper.img
+exec_always --no-startup-id feh --bg-fill ~/wallpaper.image
+exec_always --no-startup-id betterlockscreen -u ~/wallpaper.image
 
 # Transparency
 exec_always --no-startup-id compton
