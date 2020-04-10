@@ -34,7 +34,7 @@ bindkey -v
 export EDITOR=/usr/bin/nvim
 
 # Set MPD host
-export MPD_HOST=batatasueca@localhost
+export MPD_HOST=[password]@localhost
 
 # Aliases
 alias ls='exa'
@@ -70,6 +70,6 @@ export COLOR7=#c5c8c6
 export COLOR15=#f2f2f2
 
 
-eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa ~/.gnupg/pubkey`
+eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa ~/.gnupg/signing.key`
 
 eval $(thefuck --alias fuck)

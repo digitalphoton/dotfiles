@@ -39,4 +39,4 @@ To use the handy `keychain` for managing your ssh and gpg keys:
 
 Afterwards, uncomment the keychain line in '.config/zsh/zshrc'
 
-Keep in mind I put my public GPG key in ~/.gnupg/pubkey
+Keep in mind I put my signing GPG key in ~/.gnupg/signing.key
