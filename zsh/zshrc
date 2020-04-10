@@ -33,11 +33,43 @@ bindkey -v
 # Set default editor to neovim
 export EDITOR=/usr/bin/nvim
 
+# Set MPD host
+export MPD_HOST=batatasueca@localhost
+
 # Aliases
 alias ls='exa'
 alias la='ls -a'
 alias ll='ls -lh --time-style long-iso --git'
 alias cat='bat'
 
-eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa 271E480E94C91782CBFBEA0A484AB4CF1358F42A`
+# Colorscheme
 
+# Black
+export COLOR0=#303030
+export COLOR8=#5d5d5d
+# Red
+export COLOR1=#e1321a
+export COLOR9=#ff361e
+# Green
+export COLOR2=#6ab017
+export COLOR10=#7bc91f
+# Yellow
+export COLOR3=#ffc005
+export COLOR11=#ffd00a
+# Blue
+export COLOR4=#004f9e
+export COLOR12=#0071ff
+# Magenta
+export COLOR5=#ec0048
+export COLOR13=#ff1d62
+# Cyan
+export COLOR6=#2aa7e7
+export COLOR14=#4bb8fd
+# White
+export COLOR7=#c5c8c6
+export COLOR15=#f2f2f2
+
+
+eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa 7CED3620BD737BB9`
+
+eval $(thefuck --alias fuck)

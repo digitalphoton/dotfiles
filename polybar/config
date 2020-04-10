@@ -16,7 +16,7 @@
 ;
 ;==========================================================
 
-[colorscheme]
+[colors]
 # First color is regular, second one is bold
 
 # Black
@@ -44,55 +44,59 @@ color14 = #4bb8fd
 color7  = #c5c8c6
 color15 = #f2f2f2
 
-[colors]
-# Slightly transparent grey
-background      = #e6222222
-# Regular Black
-background-alt  = ${colorscheme.color0} 
+leds-on = #ff0000
+leds-off = #5f0000
 
-# Regular white
-foreground      = ${colorscheme.color7}
-# Bold white
-foreground-bold = ${colorscheme.color15}
-# Regular red
-foreground-alt  = ${colorscheme.color1}
+background = ${self.color0}
+foreground = ${self.color15}
 
-# Regular Blue
-alert = ${colorscheme.color4}
+indicators-off = #001428
+indicators-lit = ${self.color12}
+indicators-alert-off = #2d0a05
+indicators-alert-lit = ${self.color9}
+
+#------------------------------------------------------------------------------------------#
 
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 24
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
 fixed-center = false
 
 background = ${colors.background}
-foreground = ${colors.foreground-bold}
+foreground = ${colors.foreground}
 
 line-size = 0
 line-color = #f00
 
-border-size = 5
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 2
+module-margin-right = 1
 
-font-0 = DejaVu Sans Book:pixelsize=10;2
-font-1 = Hack Nerd Font:pixelsize=12;4
+font-0 = DejaVu Sans Book Mono:pixelsize=8.5;2
+font-1 = Hack Nerd Font:pixelsize=12;3
+font-2 = Hack Nerd Font:pixelsize=9;3
+font-3 = DejaVu Sans Mono:style=Bold:pixelsize=10;2
+;font-3 = Digital\-7:style=Mono:pixelsize=12;2
 
 modules-left = i3 title
 modules-center = 
-modules-right = pulseaudio xbacklight xkeyboard network wlan eth battery date
+modules-right = pulseaudio battery wlan eth kb-layout kb-caps date volume6
+
+;separator = "  "
 
 tray-position = center
 tray-padding = 2
+tray-maxsize = 5
+;tray-detached = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -109,27 +113,35 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+#------------------------------------------------------------------------------------------#
+
 [module/i3]
 strip-wsnumbers = true
 type = internal/i3
 format = <label-state> <label-mode>
+format-font = 4
+
+;label-separator = " "
 
 label-focused = %index%
-label-focused-background = ${colors.foreground-alt}
-label-focused-padding = 2
+label-focused-background = ${colors.indicators-lit}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
 
 label-unfocused = %index%
-label-unfocused-background = ${colors.background-alt}
-label-unfocused-padding = 2
+label-unfocused-background = ${colors.indicators-off}
+label-unfocused-padding = 1
 
 label-visible = %index%
-label-visible-background = ${colors.background-alt}
-label-visible-padding = 2
+label-visible-background = ${colors.indicators-off}
+label-visible-padding = 1
 
 label-urgent = %index%
-label-urgent-foreground = ${colors.background-alt}
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-foreground = ${colors.indicators-alert-off}
+label-urgent-background = ${colors.indicators-alert-lit}
+label-urgent-padding = 1
+
+#------------------------------------------------------------------------------------------#
 
 [module/title]
 type = internal/xwindow
@@ -137,123 +149,245 @@ type = internal/xwindow
 format = <label>
 format-padding = 0
 format-foreground = ${colors.foreground}
+format-font = 4
 
 label = %title%
 label-maxlen = 50
 
 label-empty = i3
 
-[module/xbacklight]
-type = internal/xbacklight
+#------------------------------------------------------------------------------------------#
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+;[module/mpd]
+;type = internal/mpd
+;
+;; Host where mpd is running (either ip or domain name)
+;; Can also be the full path to a unix socket where mpd is running.
+;host = 127.0.0.1
+;port = 6600
+;password = batatasueca
+;
+;leds-on-color = #ffffff
+;leds-off-color = #5f5f5f
+;
+;bar-progress-width = 10
+;bar-progress-indicator = ▬
+;bar-progress-indicator-foreground = ${colors.indicators-lit}
+;bar-progress-fill = ▬
+;bar-progress-fill-foreground = ${colors.indicators-lit}
+;bar-progress-empty = ▬
+;bar-progress-empty-foreground = ${colors.indicators-off}
+;
+;format-playing-prefix = "契 "
+;format-playing-prefix-foreground = ${colors.foreground}
+;format-playing = <bar-progress>
+;
+;format-paused-prefix = " "
+;format-paused-prefix-foreground = ${colors.foreground}
+;format-paused = <bar-progress>
+
+#------------------------------------------------------------------------------------------#
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume-prefix = "墳 " 
-format-volume-prefix-foreground = ${colors.foreground-alt}
+format-volume-prefix = "墳  " 
+format-volume-prefix-font = 1
+format-volume-prefix-foreground = ${colors.foreground}
+format-volume = <bar-volume>
 
-format-muted-prefix = "ﱝ "
-format-muted-prefix-foreground = ${colors.foreground-alt}
-label-muted = ----
+bar-volume-width = 11
+bar-volume-indicator =
+bar-volume-indicator-foreground = ${colors.indicators-lit}
+bar-volume-fill = ▬
+bar-volume-fill-foreground = ${colors.indicators-lit}
+bar-volume-empty = ▬
+bar-volume-empty-foreground = ${colors.indicators-off}
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+format-muted-prefix = "ﱝ  "
+format-muted-prefix-foreground = ${colors.foreground}
+format-muted-foreground = ${colors.indicators-off}
+label-muted = ▬▬▬▬▬▬▬▬▬▬
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+click-right = pavucontrol &
 
-label-layout = %layout%
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.foreground-alt}
+#------------------------------------------------------------------------------------------#
 
-[module/wlan]
-type = internal/network
-interface = wlp4s0
-interval = 1.0
+[module/xbacklight]
+type = internal/xbacklight
 
-format-connected = <label-connected>
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+format-prefix = "   "
+format-prefix-font= 1
+format-prefix-foreground = ${colors.foreground}
 
-click-left = networkmanager_dmenu &
-click-right = networkmanager_dmenu &
+format = <bar>
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+bar-width = 10
+bar-indicator = ▬
+bar-indicator-foreground = ${colors.indicators-lit}
+bar-fill = ▬
+bar-fill-foreground = ${colors.indicators-lit}
+bar-empty = ▬
+bar-empty-foreground = ${colors.indicators-off}
 
-[module/eth]
-type = internal/network
-interface = enp5s0
-interval = 1.0
+#------------------------------------------------------------------------------------------#
 
-format-connected-prefix = "爵 "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+;[module/cpu]
+;type = internal/cpu
+;interval = 1
+;format-prefix = ""
+;format-prefix-foreground = ${colors.indicators-lit}
+;label = %percentage:2%%
 
-format-disconnected = 
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+#------------------------------------------------------------------------------------------#
 
-[module/cpu]
-type = internal/cpu
-interval = 1
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage:2%%
+;[module/memory]
+;type = internal/memory
+;interval = 1
+;format-prefix = " "
+;format-prefix-foreground = ${colors.indicators-lit}
+;label = %percentage_used%%
 
-[module/memory]
-type = internal/memory
-interval = 1
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage_used%%
+#------------------------------------------------------------------------------------------#
 
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 99
+poll-interval = 1
+
+bar-capacity-width = 11
+bar-capacity-indicator = 
+bar-capacity-indicator-foreground = ${colors.indicators-lit}
+bar-capacity-fill = ▬
+bar-capacity-fill-foreground = ${colors.indicators-lit}
+bar-capacity-empty = ▬
+bar-capacity-empty-foreground = ${colors.indicators-off}
+
+label-charging = 
+label-discharging = " "
+label-full = 
 
 format-charging-prefix = " "
-format-charging-prefix-foreground = ${colors.foreground-alt}
+format-charging-prefix-foreground = ${colors.foreground}
+format-charging = <bar-capacity>
+
 format-discharging-prefix = " "
-format-discharging-prefix-foreground = ${colors.foreground-alt}
+format-discharging-prefix-foreground = ${colors.foreground}
+format-discharging = <bar-capacity>
+
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.foreground}
+format-full = <bar-capacity>
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+#------------------------------------------------------------------------------------------#
 
-poll-interval = 1
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 1.0
+
+format-connected-prefix = "    "
+format-connected-prefix-foreground = ${colors.foreground}
+format-connected-foreground = ${colors.indicators-lit}
+label-connected = %{A1:networkmanager_dmenu:}●%{A}
+
+format-disconnected-prefix = "    "
+format-disconnected-prefix-foreground = ${colors.foreground}
+format-disconnected-foreground = ${colors.indicators-off}
+label-disconnected = %{A1:networkmanager_dmenu:}●%{A}
+
+
+click-left = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
+
+;format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.indicators-lit}
+
+#------------------------------------------------------------------------------------------#
+
+[module/eth]
+type = internal/network
+interface = enp5s0
+interval = 1.0
+
+format-connected-prefix = "   "
+format-connected-prefix-foreground = ${colors.foreground}
+format-connected-foreground = ${colors.indicators-lit}
+label-connected = %{A1:networkmanager_dmenu:}●%{A}
+
+format-disconnected-prefix = "   "
+format-disconnected-prefix-foreground = ${colors.foreground}
+format-disconnected-foreground = ${colors.indicators-off}
+label-disconnected = %{A1:networkmanager_dmenu:}●%{A}
+
+cursor-click = networkmanager_dmenu &
+
+#------------------------------------------------------------------------------------------#
+
+[module/kb-layout]
+type = internal/xkeyboard
+
+format = <label-layout>
+
+format-prefix = "   "
+format-prefix-foreground = ${colors.foreground}
+
+label-layout = %layout%
+label-layout-foreground = ${colors.indicators-lit}
+label-layout-font = 4
+
+
+#------------------------------------------------------------------------------------------#
+
+[module/kb-caps]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format = <label-indicator>
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+
+label-indicator-on-capslock = "●"
+label-indicator-on-capslock-foreground = ${colors.indicators-alert-lit}
+label-indicator-off-capslock = "●"
+label-indicator-off-capslock-foreground = ${colors.indicators-alert-off}
+
+;label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.indicators-lit}
+
+#------------------------------------------------------------------------------------------#
 
 [module/date]
 type = internal/date
-interval = 1
+interval = 0.1
 
-date =
-date-alt = " %Y-%m-%d"
+format-prefix = "   "
+format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.foreground}
+;format-background = ${colors.indicators-off}
+format-foreground = ${colors.indicators-lit}
 
-time = %H:%M:%S
-time-alt = %H:%M:%S
+time = "%H:%M:%S "
+time-alt = "%Y-%m-%d "
 
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
+label-font = 4
+label = %time%
 
-label = %date% %time%
+#------------------------------------------------------------------------------------------#
+
+;[module/vu-meter]
+;type = custom/script
+;exec = ~/Downloads/pb_vu-meter/vu.py
+
+#------------------------------------------------------------------------------------------#
 
 [settings]
 screenchange-reload = true
@@ -262,6 +396,8 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = false
+
+#------------------------------------------------------------------------------------------#
 
 [global/wm]
 margin-top = 5
