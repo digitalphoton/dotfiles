@@ -3,13 +3,9 @@ Configuration files for my GNU/Linux setup
 
 ## Information
 
-Desktop Environment: Xfce
-
 Window Manager: i3-gaps
 
-GTK2/3 Theme: Qogir
-
-Icon Theme: Papirus
+Terminal: kitty
 
 Shell: zsh
 
@@ -17,9 +13,7 @@ Shell: zsh
 
 Run the following commands (assuming you use Arch Linux, have the `yay` AUR helper installed, and already have Xfce and zsh up and running):
 
-  `# sudo pacman -S compton exa feh neovim papirus-icon-theme termite ttf-dejavu`
-
-  `$ yay -S i3-gaps-next-git qogir-gtk-theme-git xfce4-i3-workspaces-plugin-git`
+  `# sudo pacman -S i3-gaps compton exa feh neovim papirus-icon-theme termite ttf-dejavu`
 
 Then just copy all of the folders in this repository to '~/.config'. Please note that for the zsh config to be applied you need to run:
 
@@ -45,3 +39,4 @@ To use the handy `keychain` for managing your ssh and gpg keys:
 
 Afterwards, uncomment the keychain line in '.config/zsh/zshrc'
 
+Keep in mind I put my public GPG key in ~/.gnupg/pubkey
