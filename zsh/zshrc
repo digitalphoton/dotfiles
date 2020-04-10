@@ -70,6 +70,6 @@ export COLOR7=#c5c8c6
 export COLOR15=#f2f2f2
 
 
-eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa 7CED3620BD737BB9`
+eval `keychain --agents ssh,gpg --eval --quiet --noask ~/.ssh/id_rsa ~/.gnupg/pubkey`
 
 eval $(thefuck --alias fuck)
